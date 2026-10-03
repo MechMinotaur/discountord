@@ -31,4 +31,13 @@ docker run --rm -u "$(id -u):$(id -g)" \
   mcr.microsoft.com/dotnet/sdk:10.0 \
   dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version '10.*'
   ```
-- Pushed to GitHub
+- Setup ssh keys with:
+  - Created a key with `ssh-keygen -t ed25519 -C "tim.burch1@outlook.com"`
+  - Started the ssh agent with `eval (ssh-agent -c)`
+  - Adding with `ssh-add ~/.ssh/id_ed25519` followed by `ssh-add -l`
+  - Signing into github and copy pasting the output from `cat ~/.ssh/id_ed25519.pub` into a new SSH key
+  - Changing remote from https to ssh with `git remote set-url origin git@github.com:MechMinotaur/discountord.git`
+  - Pushing with git push -u origin main
+
+
+
