@@ -28,6 +28,14 @@ services:
       ASPNETCORE_URLS: http://+:8080
     command: dotnet watch run --urls http://0.0.0.0:8080
 
+  dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: sleep infinity
 
 volumes:
   frontend_node_modules:

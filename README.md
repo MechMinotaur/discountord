@@ -15,7 +15,8 @@ Lamest chat server ever
 - docker buildx install
 
 # Setup vscode
-Install Dev Containers extension
+- Install Dev Containers extension
+- Install the Container Tools extension
 
 # How I created this
 - Signed into github and created a new repo
@@ -39,5 +40,6 @@ docker run --rm -u "$(id -u):$(id -g)" \
   - Changing remote from https to ssh with `git remote set-url origin git@github.com:MechMinotaur/discountord.git`
   - Pushing with git push -u origin main
 
-
+- setup a dev container using docker-compose.yml
+- attached to it using vscode's extension with `Dev Containers: Reopen in Container`
 
