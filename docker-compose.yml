@@ -26,7 +26,21 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=${POSTGRES_DB:-app};Username=${POSTGRES_USER:-app};Password=${POSTGRES_PASSWORD:-app}"
+    depends_on:
+      - postgres
     command: dotnet watch --non-interactive run --urls http://0.0.0.0:8080
+
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-app}
+      POSTGRES_USER: ${POSTGRES_DB:-app}
+      POSTGRES_PASSWORD: ${POSTGRES_DB:-app}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
 
   dev:
     build:
@@ -40,3 +54,4 @@ services:
 volumes:
   frontend_node_modules:
   dotnet_nuget:
+  postgres_data:
